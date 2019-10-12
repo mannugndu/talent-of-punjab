@@ -1,0 +1,37 @@
+.myLabel {
+    position: relative;
+}
+.myLabel input
+{
+    position: absolute;
+    z-index: 2;
+    opacity: 0;
+}
+.browse
+{
+background:#a72825;
+color:white;
+padding:10px 40px 10px 40px;
+border-radius:5px;
+}
+.browse_background
+{
+	background:#e5e5ff;
+	padding-top:50px;
+	padding-bottom:30px;
+	padding-left:120px;
+	padding-right:120px;
+	border-radius:10px;
+}
+@media (max-width:450px)
+{
+	.browse_background
+{
+	background:#e5e5ff;
+	padding-top:50px;
+	padding-bottom:50px;
+	padding-left:0px;
+	padding-right:0px;
+	border-radius:10px;
+}
+}

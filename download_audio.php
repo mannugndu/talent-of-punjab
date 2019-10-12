@@ -1,0 +1,22 @@
+<?php
+$con=mysqli_connect("localhost","tpunjab","PuNjab1305","talentedpunjab");
+$id=$_GET['a_id'];
+$qu=mysqli_query($con,"select * from top_audios where a_id='$id'");
+$row=mysqli_fetch_array($qu);
+$name=$row['name'];
+$exte=$row['extension'];
+$filename="audios/".$name;
+$ctype="application/".$exte;
+if(ini_get('alib.output_compression'))
+	ini_set('zlib.output_compression','off');
+header("Pragma:public");
+header("Expires:0");
+header("Cache-Control:must-revalidate,post-check=0,pre-check=0");
+header("Cache-Control:private",false);
+header("Content-Type:$ctype");
+header("Content-Disposition:attachment;filename=\"".basename($filename)."\";");
+header("Content-Transfer-Encoding:binary");
+header("Content-Length:".filesize($filename));
+readfile("$filename");
+exit();
+?>
